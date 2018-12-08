@@ -1,27 +1,18 @@
 ---
 blip: <to be assigned>
-title: <BLIP title>
-author: <a list of the author's or authors' name(s) and/or username(s), or name(s) and email(s), e.g. (use with the parentheses or triangular brackets): FirstName LastName (@GitHubUsername), FirstName LastName <foo@bar.com>, FirstName (@GitHubUsername) and GitHubUsername (@GitHubUsername)>
+title: Key Linking as an Attestation
+author: Michael Welnick @bijeebuss
 status: Draft
-created: <date created on, in ISO 8601 (yyyy-mm-dd) format>
-requires (*optional): <BLIP number(s)>
-replaces (*optional): <BLIP number(s)>
+created: 2018-12-07
 ---
-
-<!--You can leave these HTML comments in your merged BLIP and delete the visible duplicate text guides, they will not appear and may be helpful to refer to if you edit it again. This is the suggested template for new BLIPs. Note that a BLIP number will be assigned by an editor. When opening a pull request to submit your BLIP, please use an abbreviated title in the filename, `blip-draft_title_abbrev.md`. The title should be 44 characters or less.-->
-This is the suggested template for new BLIPs.
-
-Note that a BLIP number will be assigned by an editor. When opening a pull request to submit your BLIP, please use an abbreviated title in the filename, `blip-draft_title_abbrev.md`.
-
-The title should be 44 characters or less.
 
 ## Simple Summary
 <!--"If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the BLIP.-->
-If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the BLIP.
+Use an attestation to link an ethereum addresses or to another other public key/address instead of the existing AccountRegistryLogic contract. 
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-A short (~200 word) description of the technical issue being addressed.
+AccountRegistryLogic contains logic to link/unlink two ethereum addresses, however AttestationLogic already includes all the necessary functionality to do the same. A key-link attestation type could be created with a data node structure that includes both keys to be linked and a signature from each signing the other. This allows users to anonymously link their accounts together and selectively disclose the association using merkle tree proofs. It also allows the possibility of linking other key types such as pgp keys that are not supported by the ethereum EVM but are more suitable for secure encryption. Lastly it simplifies the bloom protocol by removing the need for the AccountRegistryLogic contract. 
 
 ## Motivation
 <!--The motivation is critical for BLIPs that want to change the Bloom protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the BLIP solves. BLIP submissions without sufficient motivation may be rejected outright.-->
